@@ -1,32 +1,7 @@
-const user = {
-  id: 1,
-  name: "jean",
-};
+import { getUser } from "./services/user";
 
-// Manual type
-const user2: {
-  id: number;
-  name: string;
-} = {
-  id: 1,
-  name: "michel",
-};
+const user = await getUser();
 
-// Type
-type UserType = {
-  id: number;
-  name: string;
-};
-
-// Interface
-interface UserInterface {
-  id: number;
-  name: string;
-}
-
-// Class
-class UserClass {
-  constructor(private id: number, public name: string) {}
-}
-
-const _user: UserInterface = {};
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+<div>${user.name}</div>
+`;
