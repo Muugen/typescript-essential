@@ -1,7 +1,16 @@
-import { getUser } from "./services/user";
+import { getUser, updateUser } from "./services/user";
 
-const user = await getUser();
+const updateDom = () => {
+  document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+  <div>Hello ${user.username}</div>
+  `;
+};
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-<div>${user.name}</div>
-`;
+let user = await getUser();
+updateDom();
+
+setTimeout(async () => {
+  user = await updateUser({ username: "anthony" });
+  console.log(user);
+  updateDom();
+}, 3000);

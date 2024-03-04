@@ -1,4 +1,14 @@
 export interface UserInterface {
   id: number;
-  name: string;
+  username?: string;
+  email: string;
+  bio: string;
+  images: {
+    profile: string;
+    banner: string;
+  };
+}
+
+export interface AdminUserInterface extends UserInterface {
+  roles: string[];
 }
