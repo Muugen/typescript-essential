@@ -10,5 +10,11 @@ export interface UserInterface {
 }
 
 export interface AdminUserInterface extends UserInterface {
-  roles: string[];
+  roles: AdminRoles[];
+}
+
+export enum AdminRoles {
+  "Jedi_Knight",
+  "Jedi_Master",
+  "Grand_Master",
 }

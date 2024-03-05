@@ -1,3 +1,4 @@
+import { AdminRoles } from "models/User";
 import { getUser, updateUser } from "./services/user";
 
 const updateDom = () => {
@@ -8,6 +9,8 @@ const updateDom = () => {
 
 let user = await getUser();
 updateDom();
+
+console.log(AdminRoles["Jedi_Master"]);
 
 setTimeout(async () => {
   user = await updateUser({ username: "anthony" });
